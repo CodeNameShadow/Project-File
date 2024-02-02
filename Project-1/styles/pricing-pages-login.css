@@ -1,0 +1,216 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/PROJECTS/Project-1/Image/teamwork2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'kanit', 'sans-serif';
+    box-sizing: border-box;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas: 'login-signup-greet form';
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+}
+
+section.login-signup-greet, section.form {
+    width: 70%;
+    height: 70%;
+    padding: 5%;
+}
+section.login-signup-greet {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    grid-area: login-signup-greet;
+    justify-self: end;
+    background-color: #00b289 ;
+    display: grid;
+    grid-template-areas: 'h1-title'
+                         'p-text'
+                         'login-illustrations';
+    grid-template-rows: repeat(3, auto) ;
+    row-gap: 10px;
+    box-sizing: border-box ;
+
+}
+
+/* section-greeting */
+section.login-signup-greet h1 {
+    width: 100%;
+    grid-area: h1-title;
+    font-size: 1.9rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+section.login-signup-greet p {
+    grid-area: p-text;
+    text-align: center;
+    text-transform: capitalize;
+    text-decoration: double;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+section.login-signup-greet img {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+/* section-form */
+section.form {
+    grid-area: form;
+    justify-self: start;
+    background: rgba(255, 255, 255, 0.11);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.9px);
+    -webkit-backdrop-filter: blur(4.9px);
+    border: 1px solid rgba(255, 255, 255, 0.31);
+    padding: 5%;
+    box-sizing: border-box ;
+}
+
+section.form form {
+    width: 100%;
+    display: grid;
+    grid-auto-flow: row;
+    row-gap: 20px;
+}
+
+section.form form label {
+    width: 100%;
+    display: flex;
+    background: transparent;
+    box-sizing: border-box;
+    align-items: center;
+    border-width: 0 0 2px 0;
+    border-color: #00b289;
+    border-style: solid;
+    padding: 10px;
+}
+
+section.form form label:nth-child(3) {
+    border: none;
+    padding: 0;
+}
+
+section.form form label .fa-solid {
+    width: 30px;
+    color: #fff;
+}
+
+section.form form input {
+    background: transparent;
+    border: none;
+    box-sizing: border-box;
+    padding: 2px;
+}
+
+section.form form input:focus {
+    outline: 0;
+}
+
+section.form form input[placeholder] {
+    font-size: 1.2rem;
+    font-weight: lighter;
+    color: #fff;
+}
+
+section.form form input[type="checkbox"] {
+    margin: 0 20px 0 0;
+    background: transparent;
+}
+
+section.form form p {
+    font-size: 1rem;
+    text-transform: capitalize;
+    color: #fff;
+    font-weight: 600;
+}
+
+section.form form p span a {
+    color: #00b289;
+}
+
+
+section.form form button {
+    border-radius: 10px;
+    text-transform: uppercase;
+    background: #00b289;
+    font-size: 1rem;
+    font-weight: bolder;
+    padding: 10px;
+    border-color: #00b289;
+    align-self: end;
+    cursor: pointer;
+    align-self: end;
+    transition: .5s;
+    box-shadow: 5px 7px 0px #000;
+}
+
+section.form form button:hover {
+    color: #fff;
+    border-color: transparent;
+}
+
+section.form form button:focus {
+    box-shadow: 0px 0px 0px #000;
+    transition: .2s;
+}
+
+.alternatives-login {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.alternatives-login a img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.forgot-pass {
+    display: flex;
+    justify-content: center;
+}
+
+.forgot-pass a {
+    color: #fff;
+    font-weight: bold;
+}
+
+
+/* Responsive Breakpoint */
+@media screen and (max-width:1023px) {
+    main {
+        grid-template-areas: 'form form form';
+        grid-template-columns: auto;
+        justify-items: center;
+        align-items: center;
+    }
+    section.login-signup-greet {
+        display: none;
+    }
+    section.form {
+        width: 400px;
+        grid-column: 2 / 3;
+        justify-self: center;
+    }
+}
+
+@media screen and (max-width:767px) {
+    section.form {
+        max-width: 80%;
+    }
+}
+
+
+
+
+
+

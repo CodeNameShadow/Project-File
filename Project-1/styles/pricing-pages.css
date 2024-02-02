@@ -1,0 +1,1318 @@
+/* google-fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,500&display=swap'); */
+
+:root {
+    --main-background-color : #fff;
+    --main-elements-color: #00b289;
+    --main-text-color: #4c4d5f;
+    --secondary-elements-color: #f8db62;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kanit' , sans-serif;
+    max-width: 100%;
+    height: 100%;
+    display: grid;
+    /* border: 5px solid orange; */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 'nav nav nav'
+                         'main main main'
+                         'footer footer footer';
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* landing-page-background */
+.landing-page-bgr {
+    position: absolute;
+    left: 650px;
+    scale: 2;
+    background-color: var(--main-elements-color);
+    opacity: .1;
+    transform: rotate(70deg);
+    width: 100vh;
+    height: 100dvh;
+    z-index: -999;
+}
+
+/* navbar */
+nav {
+    grid-area: nav;
+    max-width: 100%;
+    padding: 1%;
+    display: grid;
+    grid-template-columns: minmax(300px, 2fr) minmax(350px, 3fr) minmax(300px, 2fr);
+    grid-template-areas: 'icon menu login-and-trial-buttons';
+    place-items: center;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+/* nav-logo*/
+.nav-logo-container {
+    grid-area: icon ;
+}
+
+.nav-logo-container .fa-code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    color: #00b289;
+}
+
+.nav-logo-container h1 {
+    font-size: 1.6em;
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo-container h1 span {
+    margin-left: 10px ;
+    font-weight: 900;
+    color: var(--main-elements-color);
+}
+
+/* nav-menu */
+.nav-menu-container {
+    grid-area: menu;
+    width: 100%;
+}
+
+.nav-menu-container ul{
+    width: 100%;
+    min-width: 75%;
+    list-style: none;
+    display: inline-flex;
+    justify-content: space-evenly;
+}
+
+.nav-menu-container ul li {
+    position: relative;
+}
+
+.nav-menu-container ul li a{
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--main-text-color);
+    transition: .2s ease-in-out ;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-menu-container ul li a:hover {
+    color: var(--main-elements-color);
+}
+
+.nav-menu-container ul li a .fa-caret-down{
+    margin-left: 12px;
+    transition: all .3s ease-in-out;
+}
+
+.nav-menu-container ul li a:hover .fa-caret-down {
+    color: var(--main-elements-color);
+    transform: rotate(180deg);
+}
+
+.sub-menu-1 {
+    display: none;
+}
+
+.nav-menu-container ul li:hover .sub-menu-1 {
+    display: flex;
+    width: 200px;
+    height: 155px;
+    padding: 10px;
+    position: absolute;
+    left: -75px;
+    /* BUTUH JAVASCRIPT AGAR ELEMENT LI TETAP TERHOVER SELAMA SUB-MENU NYA DI HOVER */
+    /* margin-top: 15px; */
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.nav-menu-container ul li:hover .sub-menu-1 ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.nav-menu-container ul li:hover .sub-menu-1 ul li {
+    border-bottom: 2px solid var(--main-elements-color) ;
+    text-align: center;
+    padding: 15px 0;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.sub-menu-1 ul li:hover {
+    background-color: var(--main-elements-color);
+    background-clip: padding-box;
+    border-bottom: 2px solid #4c4d5f;
+    color: #fff;
+}
+
+/* nav-button */
+.nav-button-container {
+    grid-area: login-and-trial-buttons ;
+    padding-left: 15%;
+    place-self: center start;
+}
+
+.nav-button-container ul {
+    list-style: none;
+    display: inline-flex;
+}
+
+.nav-button-container ul li a {
+    padding: 10px 15px;
+    text-transform: uppercase;  
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 3px;
+}
+
+.navbar-btn-log-in {
+    color: var(--main-elements-color);
+    border: 1px solid var(--main-elements-color);
+    transition: .3s ease-in-out;
+}
+
+.navbar-btn-log-in:hover {
+    background-color: var(--main-elements-color);
+    color: #fff;
+    padding: 15px;
+}
+
+.navbar-btn-log-in .fa-user {
+    margin-right: 8px;
+}
+
+.navbar-btn-start-trial {
+    background-color: var(--main-elements-color);
+    color: #fff;
+    margin-left: 10px;
+    transition: .3s ease-in-out;
+}
+
+.navbar-btn-start-trial:hover {
+    color: var(--main-elements-color);
+    background-color: #fff;
+    border: 1px solid var(--main-elements-color);
+    padding: 15px;
+}
+
+/* main */
+main {
+    width: 100%;
+    height: 100%;
+    grid-area: main;
+    display: grid;
+    place-content: center;
+    grid-template-areas: 'plans-and-pricing plans-and-pricing plans-and-pricing'
+                         'price-card price-card price-card'
+                         'service-addons service-addons service-addons'
+                         'service-offer service-offer service-offer'
+                         'faq faq faq' ;
+    grid-template-columns: minmax(100px, 1fr) minmax(250px, 5fr) minmax(100px, 1fr);
+}
+
+/* plans-and-pricing */
+section.plans-and-pricing {
+    grid-area: plans-and-pricing;
+    padding-top: 125px;
+    display: grid;
+    grid-template-columns: minmax(50%, 1fr) 3fr;
+    grid-template-areas: 'plans-and-pricing-title switch';
+    grid-auto-flow: column;
+    align-items: baseline;
+}
+
+section.plans-and-pricing h2 {
+    grid-area: plans-and-pricing-title;
+    justify-self: end;
+    padding-right: 30px;
+    font-size: 2.2rem;
+    color: var(--main-text-color);
+}
+
+/* Slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #8eccbd;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #fff;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--main-elements-color);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #ccc;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.round {
+    border-radius: 34px;
+}
+
+.round:before {
+    border-radius: 50%;
+}
+
+/* Yearly-or-Monthly-Option */
+.monthly-yearly-switch {
+    grid-area: switch;
+    width: 300px;
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+}
+
+.monthly-yearly-switch h3 {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.yearly-offer-tag {
+    position: absolute;
+    left: 230px;
+    bottom: 20px;
+    width: 125px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.yearly-offer-tag h3{
+    font-size: 1rem;
+    padding-bottom: 8px;
+    color: var(--main-elements-color);
+}
+
+/* Service-Card */
+section.service-price-card {
+    grid-area: price-card;
+    display: inline-flex;
+    justify-content: center;
+    padding: 60px 20px;
+    column-gap: 25px;
+    vertical-align: top;
+}
+
+div.price-card {
+    width: 375px;
+    padding: 6% 4% ;
+    background-color: #fff;
+    box-shadow: inset 0 0 2px #4c4d5f;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #4c4d5f;
+    display: grid;
+    grid-template-rows: repeat(2, 100px) 3.5fr 1fr;
+    grid-template-areas: 'plans-type'
+                         'price'
+                         'features'
+                         'button';
+    position: relative;
+    overflow: hidden;
+}
+
+div.plans-type {
+    grid-area: plans-type;
+}
+
+.most-popular-tag {
+    text-align: center ;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1rem;
+    background-color: var(--main-elements-color);
+    color: #fff;
+    padding: 15px 50px;
+    position: absolute;
+    right: -55px;
+    top: 38px;
+    transform: rotate(45deg);
+}
+
+div.plans-type h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding-bottom: 15px;
+    text-transform: capitalize;
+}
+
+div.plans-type p {
+    font-size: .9rem;
+    color: #4c4d5f;
+    padding-bottom: 15px;
+    font-weight: 500;
+    line-height: 1.4rem;
+}
+
+div.price-card div.price {
+    grid-area: price;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-color:  var(--main-elements-color);
+}
+
+.price-card div.price .currency-symbol {
+    font-size: 2rem;
+    margin-right: 10px;
+    font-weight: 400;
+    align-self: flex-start;
+    position: relative;
+    top: 5px;
+}
+
+.price-card div.price .duration {
+    font-size: 26px;
+    text-transform: uppercase;
+    margin-left: 15px;
+    align-self: end;
+}
+
+div.features {
+    grid-area: features;
+    padding-top: 6% ;
+}
+
+div.features ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+}
+
+div.features ul li {
+   font-weight: 500;
+   font-size: 1rem;
+   text-transform: capitalize;
+}
+
+div.features div.feature-list {
+    display: inline-flex;
+    padding-top: 10%;
+}
+
+div.features div.feature-list:nth-child(1) {
+    padding-top: 0;
+}
+
+.fa-check {
+    align-self: center;
+    color: var(--main-elements-color);
+    margin-right: 12px;
+}
+
+div.third-card .features div.feature-list:nth-child(odd) .fa-check {
+    display: flex;
+    align-items: center;
+}
+
+div.third-card .features div.feature-list:nth-child(odd) li {
+    line-height: 1.5rem;
+}
+
+div.third-card .features div.feature-list:nth-child(6) .fa-check {
+    display: flex;
+    align-items: center;
+}
+
+div.third-card .features div.feature-list:nth-child(6) li {
+    line-height: 1.5rem;
+}
+
+div.price-card a {
+    grid-area: button;
+    align-self: end;
+    text-align: center;
+    text-decoration: none;
+    padding: 10%;
+    border-radius: 4px;
+    background-color: var(--main-elements-color);
+    color: #fff;
+    font-size: .9rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all .5s;
+    box-sizing: border-box;
+}
+
+div.price-card a:hover {
+    background-color: #017d60;
+}
+
+/* service-addons */
+section.service-addons {
+    grid-area: service-addons ;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-top:10% ;
+}
+
+section.service-addons h3 {
+    place-self: center;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #4c4d5f;
+    padding-bottom: 4%;
+}
+
+.addons {
+    box-sizing: border-box;
+    margin: 0 7%;
+    padding: 3% 6%;
+    margin-bottom: 2%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 'addons-type addons-price';
+    justify-content: space-between;
+}
+
+.addons .addons-type {
+    grid-area: addons-type;
+}
+
+.addons-type h4 {
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    color: var(--main-text-color);
+    line-height: 2.5rem;
+}
+
+.addons-type p {
+    font-size: .9rem;
+    padding-bottom: 20px;
+}
+
+.addons .addons-price {
+    grid-area: addons-price;
+    place-self: center end;
+    display: flex;
+    flex-direction: column;
+}
+
+div.first-addons > .addons-price > span {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--main-text-color);
+    text-transform: capitalize;
+}
+
+/* Secara Specifity selector dengan div.first-addons > .addons-price > span
+   lebih banyak nilainya dibanding dengan dua selector .addons-price > 
+   span:first/last-child dibawah ini  */
+.addons-price > span:first-child {
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 4rem;
+    color: var(--main-text-color);
+}
+
+.addons-price > span:last-child {
+    text-transform: uppercase;
+    font-size: .8rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+    text-align: center;
+    color: #4c4d5f;
+}
+
+.addons-type a {
+    width: 100px;
+    font-size: .8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none; 
+    color: #00b289;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.fa-arrow-right {
+    position: absolute;
+    bottom: 0;
+    left: 92px;
+    transition: all .2s;
+}
+
+.addons-type a:hover .fa-arrow-right {
+    left: 98px;
+}
+
+/* trial offer */
+section.trial-offer {
+    width: 60%;
+    min-width: 20%;
+    grid-area: service-offer;
+    place-self: center;
+    background-color: #f2faff;
+    margin: 5% 0;
+    padding: 4% 6%;
+    display: grid;
+    grid-template-areas: 'h3-title start-free-btn';
+    grid-template-columns: 7fr 1.5fr;
+    column-gap: 20px;
+    justify-content: space-between;
+}
+
+section.trial-offer h3 {
+    grid-area: h3-title;
+    font-size: 2.5rem;
+    line-height: 3.7rem;
+    /* font-family: Amerigo-bt roman opt; */
+}
+
+section.trial-offer > h3 > span {
+    color: #00b289;
+}
+
+section.trial-offer > a {
+    grid-area: start-free-btn;
+    width: 100px;
+    align-self: center;
+    text-align: center;
+    padding: 10% 15%;
+    background-color: var(--main-elements-color);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: .2s ease-in-out;
+}
+
+section.trial-offer > a:hover {
+    background-color: #017d60;
+}
+
+/* frequently-ask-question */
+section.faq {
+    grid-area: faq;
+    width: 100%;
+    padding: 5% 0;
+    display: grid;
+    justify-items: center;
+}
+
+section.faq h3 {
+    font-size: 2rem;
+    text-transform: capitalize;
+    font-weight: 700;
+    color: #00b289;
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+/* Accordions */
+/*SELAIN CSS BISA JUGA DENGAN JAVASCRIPT AGAR JIKA 
+LABEL/BUTTON DI CLICK MAKA AKAN MUNCUL TAG P 
+YANG ADA DI DALAM TAG CONTENT  */
+ul.accordions {
+    list-style: none;
+    width: 55%;
+}
+
+ul.accordions li {
+    padding: 10px;
+    background-color: #ccc;
+    border-radius: 4px;
+    background-color: var(--main-background-color);
+}
+
+ul.accordions li label {
+    width: 100%;
+    padding-bottom: 2% ;
+    display: flex;
+    justify-content:space-between ;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight:600;
+    cursor: pointer;
+    color: var(--main-text-color);
+    transition: all .2s;
+    overflow: hidden;
+}
+
+ul.accordions li label:hover {
+    color: #00b289;
+}
+
+ul.accordions li input[type="checkbox"] {
+    display: none;
+}
+
+ul.accordions li > input[type="checkbox"]:not(:checked) ~ content {
+    display: none;
+}
+
+ul.accordions li > input[type="checkbox"]:checked ~ content {
+    line-height: 1.5rem; 
+    overflow: hidden;
+    font-size: 1.1rem;
+    color: var(--main-text-color);
+    text-align: justify;
+}
+
+/* footer */
+footer {
+    grid-area: footer;
+    display: grid;
+    grid-template-areas: 'product free-resource about'
+                         'author author author';
+    /* hal dibawah ini akan membuat accordion 
+    tdk mendorong parentnya/containernya, kelemahannya
+    adalah accordion yang berada di tengah (Free Source)
+    memiliki gap yang sangat jauh dengan accordion sebelumnya (Product)  */
+    grid-template-columns: 1.5fr repeat(2, 1fr);
+    align-items: baseline;
+    border-top-width: 1px;
+    border-top-color: #ccc;
+    border-top-style: solid ;
+    padding: 5% 0 0 0;
+}
+
+/* footer-product */
+.product {
+    grid-area: product;
+    display: grid;
+    grid-template-areas: 'h4-title-product-footer'
+                         'ftr-product-menu';
+    place-content: center;
+}
+
+.product h4 {
+    place-self: start;
+    grid-area: h4-title-product-footer;
+    color: var(--main-text-color);
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+ul.ftr-product-menu {
+    grid-area: ftr-product-menu;
+    list-style: none;
+    padding-top: 60px ;
+}
+
+ul.ftr-product-menu li:not(:nth-child(1)) {
+    padding-top: 15px;
+}
+
+ul.ftr-product-menu li:nth-child(11) {
+    padding-top: 40px ;
+}
+
+ul.ftr-product-menu li a {
+    text-decoration: none;
+    text-transform: capitalize;
+    color: var(--main-text-color);
+}
+
+ul.ftr-product-menu li a span {
+    text-transform: uppercase;
+}
+
+ul.ftr-product-menu li a:hover {
+    color: #000;
+}
+
+ul.ftr-product-menu li:nth-child(11) a {
+    color: #00b289;
+    font-size: 1rem;
+}
+
+ul.ftr-product-menu li:nth-child(12) a {
+    color: var(--main-text-color);
+}
+
+ul.ftr-product-menu li:nth-child(12) a:hover {
+    color: #000;
+}
+
+/* footer-free-resource */
+div.free-resource {
+    grid-area: free-resource;
+    display: grid;
+    grid-template-areas: 'h4-title-free-resource-footer'
+                         'resource-list';  
+    place-content: start;
+}
+
+div.free-resource > h4 {
+    grid-area: h4-title-free-resource-footer;
+    place-self: start;
+    color: var(--main-text-color);
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+ul.resource-list {
+    grid-area: resource-list;
+    list-style: none;
+    padding-top: 60px ;
+}
+
+ul.resource-list li:not(:nth-child(1)) {
+    padding-top: 15px;
+}
+
+ul.resource-list li:nth-child(5) {
+    padding-top: 40px ;
+}
+
+ul.resource-list li a {
+    text-decoration: none;
+    text-transform: capitalize;
+    color: var(--main-text-color);
+}
+
+ul.resource-list li a:hover {
+    color: #000;
+}
+
+ul.resource-list li a span {
+    text-transform: none;
+}
+
+/* template-footer-menu */
+ul.templates-footer-menu {
+    padding-top: 40px;
+}
+
+ul.templates-footer-menu li {
+    padding-top: 15px;
+}
+
+ul.templates-footer-menu h4 {
+    text-transform: capitalize;
+    color: var(--main-text-color);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+ul.templates-footer-menu li a {
+    text-transform: capitalize;
+    text-decoration: none;
+    color: var(--main-text-color);
+}
+
+ul.templates-footer-menu li a:hover {
+    color: #000;
+}
+
+ul.templates-footer-menu label {
+    cursor: pointer;
+    color: var(--main-text-color);
+    overflow: hidden;
+    text-transform: capitalize;
+}
+
+ul.templates-footer-menu li label:hover {
+    color: #000;
+}
+
+ul.templates-footer-menu li label .fa-chevron-down {
+    padding-left: 10px;
+}
+
+ul.templates-footer-menu li label:has(span) {
+    text-transform: none;
+}
+
+ul.templates-footer-menu li input[type="checkbox"] {
+    display: none;
+}
+
+ul.templates-footer-menu li > input[type="checkbox"]:not(:checked) ~ content {
+    display: none;
+    max-height: 0;
+}
+
+ul.templates-footer-menu li > input[type="checkbox"]:checked ~ content {
+    overflow: hidden;
+    color: var(--main-text-color);
+}
+
+/* templates-footer-submenu */
+ul.templates-footer-submenu li {
+    padding: 4% 0 0 5%;
+    white-space: nowrap;
+}
+
+ul.templates-footer-submenu li a {
+    text-transform: capitalize;
+    text-decoration: none;
+    color: var(--main-text-color);
+}
+
+/* footer-about */
+div.ftr-about {
+    grid-area: about;
+    display: grid;
+    grid-template-areas: 'h4-title-about-footer'
+                         'affiliates'
+                         'affiliates';
+    place-items: start;    
+}
+
+div.ftr-about > h4 {
+    place-self: start;
+    grid-area: h4-title-about-footer;
+    color: var(--main-text-color);
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+ul.ftr-about-menu {
+    grid-area: affiliates;
+    list-style: none;
+    display: grid;
+    padding-top: 60px ;
+}
+
+ul.ftr-about-menu li:not(:nth-child(1)) {
+    padding-top: 15px;
+}
+
+ul.ftr-about-menu li:nth-child(7) {
+    padding-top: 40px ;
+}
+
+ul.ftr-about-menu li a {
+    text-decoration: none;
+    text-transform: capitalize;
+    color: var(--main-text-color);
+}
+
+ul.ftr-about-menu li a:hover {
+    color: #000;
+}
+
+/* comparisons-footer-menu */
+ul.comparisons-footer-menu {
+    padding-top: 40px ;
+}
+
+ul.comparisons-footer-menu li label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--main-text-color);
+    overflow: hidden;
+    text-transform: capitalize;
+    position: relative;
+    z-index: 99999;
+}
+
+ul.comparisons-footer-menu li label:hover {
+    color: #000;
+}
+
+ul.comparisons-footer-menu li label .fa-chevron-down {
+    padding-left: 10px;
+}
+
+ul.comparisons-footer-menu li input[type="checkbox"] {
+    display: none;
+}
+
+ul.comparisons-footer-menu li > input[type="checkbox"]:not(:checked) ~ content {
+    display: none;
+}
+
+ul.comparisons-footer-menu li > input[type="checkbox"]:checked ~ content {
+    overflow: hidden;
+    color: var(--main-text-color);
+}
+
+/* compassion-footer-submenu  */
+ul.comparisons-footer-submenu li {
+    padding: 4% 0 0 5%;
+    white-space: nowrap;
+}
+
+/* author */
+div.author {
+    width: 100%;
+    text-align: center;
+    grid-area: author;
+    background-color: #000;
+    padding: 2% 0;
+    margin-top: 100px;
+    color: #fff;
+}
+
+div.author h4 {
+    width: 100%;
+    font-size: 1.2rem;
+    padding-bottom: 2%;
+}
+
+div.author h4 span{
+    color: #00b289;
+    border-bottom: 2px dashed #00b289;
+    
+}
+
+div.author p:nth-child(even) {
+    width: 100%;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+div.author p:nth-child(odd) {
+    width: 100%;
+    text-transform: capitalize;
+}
+
+/* Responsive Breakpoints */
+@media screen and (max-width:1023px) 
+{
+    .nav-menu-container, .nav-button-container {
+        display: none;
+    }
+    section.service-price-card {
+        display: flex;
+        flex-direction: column;
+        row-gap: 50px;
+    }
+    div.price-card {
+        margin: auto;
+        width: 95%;
+    }
+    div.price-card div.price {
+        justify-content: start;
+    }
+    div.plans-type h3 {
+        font-size: 2rem;
+    }
+    div.plans-type p {
+        font-size: 1rem;
+    }
+    div.features {
+        padding-top: 20px ;
+    }
+    div.features div.feature-list {
+        padding-top: 30px;
+    }
+    .most-popular-tag {
+        width: 250px;
+        font-size: 1rem;
+        right: -90px;
+        top: 60px;
+    }
+    div.price-card a {
+        padding: 20px;
+        font-size: 1rem;
+        font-weight: bolder;
+    }
+    section.trial-offer {
+        min-width: 40%;
+        column-gap: 50px;
+        grid-template-columns: 7fr 1.5fr;
+    }
+    section.trial-offer h3 {
+        font-size: 2.2rem;
+        line-height: 3.7rem;
+    }
+    section.trial-offer > a {
+        padding: 20px 30px;
+    }
+    footer {
+        width: 100%;
+        grid-template-areas: 'product free-resource'
+                             'about free-resource'
+                             'author author';
+        grid-template-columns: 1.5fr 1.2fr;
+        grid-template-rows: 2.2fr 1.7fr;
+        align-items: baseline;
+        grid-auto-flow: column;
+    }
+    ul.ftr-product-menu, ul.resource-list, ul.ftr-about-menu {
+        padding-top: 45px ;
+    }
+    div.ftr-about {
+        width: 100%;
+        place-items: center;
+    }
+    div.ftr-about > h4 {
+        /* Width ini berguna untuk mensejajarkan 
+        antara judul accordion dengan menu accordion
+        yang berada diatasnya dan dibawahnya
+        (Sejajar dengan PRODUCT dan Menu accordion 
+        CodeMaster) */
+        width: 97%; 
+        text-align: center;
+    }
+    ul.comparisons-footer-menu {
+        /* 2 hal ini sangat berpengaruh untuk 
+        mengatasi item accordion yang sering 
+        mendorong parentnya/containernya */
+        height: 50px;
+        width: 125px;
+    }    
+}
+
+@media screen and (max-width:767px) 
+{
+    nav {
+        padding: 2%;
+    }
+    .nav-logo-container {
+        place-self: start;
+        padding-left: 5%;
+    }
+    .nav-logo-container .fa-code {
+        display: none;
+    }
+    .nav-logo-container h1 {
+        font-size: 1.4em;
+        display: flex;
+        align-items: baseline;
+    }
+    main {
+        width: 100%;
+        height: 100%;
+        grid-template-columns: minmax(auto, 1fr) minmax(auto, 5fr) minmax(auto, 1fr);
+    }
+    section.plans-and-pricing {
+        padding-top: 100px;
+        grid-template-rows: 1fr 3fr ;
+        grid-template-areas: 'plans-and-pricing-title plans-and-pricing-title '
+                             'switch switch';
+        grid-auto-flow: row;
+        align-items: baseline;
+        row-gap: 10px;
+    }
+    section.plans-and-pricing h2 {
+        justify-self: start;
+        padding-left: 8%;
+        font-size: 2rem;
+    }
+    .monthly-yearly-switch {
+        place-self: end center;
+    }
+    .monthly-yearly-switch h3, .yearly-offer-tag h3 {
+        font-size: 1rem;
+    }
+    div.price-card {
+        padding: 40px;
+    }
+    div.plans-type h3 {
+        font-size: 1.5rem;
+    }
+    div.plans-type p {
+        font-size: 1rem;
+    }
+    .most-popular-tag {
+        width: 150px;
+        font-size: 1rem;
+        right: 0;
+        top: 0;
+        transform: rotate(0deg);
+        padding: 10px 50px;
+        border-bottom-left-radius: 10px ;
+    }
+    section.service-addons h3 {
+        text-align: center;
+        font-size: 2rem;
+        width: 80%;
+    }
+    .addons-type h4 {
+        font-size: 1.2rem;
+    }
+    .addons-type p {
+        font-size: .8rem;
+    }
+    div.first-addons > .addons-price > span {
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+    .addons-price > span:first-child {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+    .addons-price > span:last-child {
+        font-size: .8rem;
+        font-weight: 500;
+    }
+    section.trial-offer {
+        grid-template-areas: 'h3-title'
+                             'start-free-btn';
+        min-width: 40%;
+        column-gap: 0;
+        row-gap: 30px;
+        grid-template-columns: 7fr;
+        grid-template-rows: 1.5fr;
+        grid-auto-flow: column;
+        margin: 10% 0 ;
+    }
+    section.trial-offer > a {
+        width: 75%;
+        justify-self: center;
+        font-size: 1rem;
+    }
+    section.faq h3 {
+        width: 90%;
+        font-size: 1.6rem;
+        font-weight: 600;
+        text-align: center;
+    }
+    ul.accordions {
+        width: 80%;
+    }
+    ul.accordions li label {
+        font-size: 1.2rem;
+    }
+    ul.accordions li {
+        padding-bottom:  2%;
+        font-weight: 600;
+    }
+    ul.accordions li content > p {
+        font-size: .9rem;
+        font-weight: lighter;
+    }
+    ul.ftr-product-menu li a {
+    text-decoration: none;
+    text-transform: capitalize;
+    color: var(--main-text-color);
+}
+}
+
+@media screen and (max-width: 550px) 
+{
+    nav {
+        padding: 3%;
+    }
+    .nav-logo-container {
+        padding-left: 0;
+    }
+    .nav-logo-container h1 span {
+        margin-left: 0 ;
+    }
+    .monthly-yearly-switch {
+        place-self: end center;
+        padding-left: 2%;
+    }
+    .yearly-offer-tag h3{
+        font-size: .8rem;
+        width: 100px;
+        position: absolute;
+        right: 50px;
+        bottom: 20px;
+    }
+    .yearly-offer-tag .fa-arrow-turn-up {
+        padding-bottom: 2px;
+    }
+    .most-popular-tag {
+        width: 150px;
+        font-size: 1rem;
+        padding: 5px 20px;
+        border-bottom-left-radius: 10px ;
+        font-size: .9rem
+    }
+    div.plans-type p {
+        padding-bottom: 0;
+    }
+    div.price-card div.price {
+        margin-top: 20px;
+    }
+    section.faq h3 {
+        width: 100%;
+        font-size: 1.6rem;
+        font-weight: 600;
+        text-align: center;
+    }
+    footer {
+        width: 100%;
+        height: 100%;
+        padding-top: 20%;
+        grid-template-areas: 'product'
+                             'free-resource'
+                             'about'
+                             'author';
+        grid-template-columns: 1.5fr;
+        grid-template-rows: 1.3fr 1.7fr 1fr;
+        justify-items: start;
+        align-items: baseline;
+        grid-auto-flow: column;
+    }
+    div.product, div.free-resource , div.ftr-about {
+        padding-left: 15%;
+    }
+    div.ftr-about > h4 {
+        width: 97%;
+        text-align: start;
+    }
+    div.ftr-about {
+        width: 100%;
+        place-items: start;
+    }
+    div.author h4 {
+        font-size: 1rem;
+        font-weight: bold;
+        padding-bottom: 2%;
+    }
+    div.author p {
+        font-size: .9rem;
+    }
+}
